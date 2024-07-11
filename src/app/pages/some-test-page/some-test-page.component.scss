@@ -1,0 +1,33 @@
+:host {
+  margin-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.page-controls {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+}
+
+.btn-primary {
+  border-radius: 4px;
+  font-family: Proxima Nova Lt, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 0 10px;
+  box-shadow: none;
+  background: #0050cf;
+  border-color: #0050cf;
+  color: #fff;
+  cursor: pointer;
+  height: 48px;
+}
+
+.btn-addEPP{
+  width: 170px;
+}
