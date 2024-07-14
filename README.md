@@ -1,27 +1,15 @@
 # SmartProCalendar
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+В папкке [backendFolder](backendFolder) находится разработанный мною код серверной составляющей компонента – подключена postgresDB, для её запуска необходимо зайти в [application.yml](backendFolder/src/main/resources) и поменять данные бд на свои.
+Остальная часть проекта является front-end частью.
+Из функционала реализовано:
+1. Открытие календаря;
+2. Перемещение по месяцам;
+3. Отображение выходных и сегодняшнего дня;
+4. Отображение дней, у которых есть какие-либо события;
+5. Возможность кликнуть на любую дату;
+6. Отображение событий на каждом дне
+7. Возможность поставить уведомление за день по почте (реализована как заглушка на сервере)
+8. Возможность отменить уведомление за день по почте (реализована как заглушка на сервере)
+9. Возможность вернуться на страницу лк студента
+Синим цветом выделяются даты с событиями, ярко-красным – текущий день, бледно-красным – выходные. Все цвета условные и не относятся к реальному дизайну
