@@ -1,0 +1,52 @@
+<div class="calendar-container">
+  <div class="calendar">
+    <div class="calendar-headline">
+      <div class="calendar-headline-controls">
+        <div class="calendar-headline-control" (click)="goToPreviousMonth()">«</div>
+        <div class='calendar-headline-current-date'>
+          {{firstDayOfActiveMonth().monthLong![0].toLocaleUpperCase() +
+          firstDayOfActiveMonth().monthLong!.slice(1)}},
+          {{firstDayOfActiveMonth().year}}
+        </div>
+        <div class="calendar-headline-control" (click)="goToNextMonth()">»</div>
+      </div>
+    </div>
+    <div class="calendar-weeks-grid">
+      @for (weekDay of weekDays(); track $index) {
+      <div class="calendar-weeks-grid-cell">
+        {{weekDay}}
+      </div>
+      }
+    </div>
+    <div class="calendar-weeks-grid">
+      @for (dayOfMonth of daysOfMonth(); track $index) {
+      <div [ngClass]="{'calendar-grid-cell' : true, 'calendar-grid-cell-today' : dayOfMonth.toISODate() == today().toISODate(),'calendar-grid-cell-weekend' : dayOfMonth.weekday === 6 || dayOfMonth.weekday === 7,
+        'calendar-grid-cell-inactive' : dayOfMonth.month !== firstDayOfActiveMonth().month,
+        'calendar-grid-cell-active' : activeDay()?.toISODate() == dayOfMonth.toISODate(),
+      'calendar-grid-cell-with-events' : datesWithEvents.includes(dayOfMonth.toFormat('dd-MM-yyyy'))}"
+        (click)="activeDayHandler(dayOfMonth)">
+        {{dayOfMonth.day}}</div>
+      }
+    </div>
+  </div>
+  <button [routerLink]="['/me']" class='btn btn-primary btn-go-back-from-calendar'>Вернуться в личный кабинет</button>
+</div>
+@if (events().length >= 0) {
+<div class="events-container">
+  <div class="events-headline">События на {{activeDay()?.toFormat('dd-MM-yyyy')?.replaceAll('-', '.')}}</div>
+  @for (event of events(); track event.id) {
+  <div class="event">
+    <div class="event-name">{{event.name}}</div>
+    <div class="event-description">{{event.description}}</div>
+    <div class="event-project">{{event.project}}</div>
+    <div class="event-author">{{event.author}}</div>
+    @if (!event.hasNotification) {
+      <button (click)="setNotification(activeDay()!.toFormat('dd-MM-yyyy'))">Напомнить за день</button>
+    }
+    @else {
+      <button (click)="removeNotification(activeDay()!.toFormat('dd-MM-yyyy'))">Отменить напоминание</button>
+    }
+  </div>
+  }
+</div>
+}
