@@ -1,6 +1,6 @@
 # SmartProCalendar
 
-В папкке [backendFolder](backendFolder) находится разработанный мною код серверной составляющей компонента – подключена postgresDB, для её запуска необходимо зайти в [application.yml](backendFolder/src/main/resources) и поменять данные бд на свои.
+В папкке [backendFolder](backendFolder) находится разработанный мною код серверной составляющей компонента – подключена postgresDB, для её запуска необходимо зайти в [application.yml](backendFolder/src/main/resources/application.yml) и поменять данные бд на свои.
 Остальная часть проекта является front-end частью.
 Из функционала реализовано:
 1. Открытие календаря;
