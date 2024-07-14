@@ -31,7 +31,7 @@
   </div>
   <button [routerLink]="['/me']" class='btn btn-primary btn-go-back-from-calendar'>Вернуться в личный кабинет</button>
 </div>
-@if (events().length >= 0) {
+@if (events().length > 0) {
 <div class="events-container">
   <div class="events-headline">События на {{activeDay()?.toFormat('dd-MM-yyyy')?.replaceAll('-', '.')}}</div>
   @for (event of events(); track event.id) {
