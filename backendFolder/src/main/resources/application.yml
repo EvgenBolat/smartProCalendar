@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: CalendarApi
+  datasource:
+    url: jdbc:postgresql://localhost:5432/calendarDatebase
+    username: postgres
+    password: jekosmoi1208
+    driver-class-name: org.postgresql.Driver
